@@ -5,18 +5,43 @@ import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 
+const todos = [
+  {
+    text: 'Pagos pendientes',
+    completed: true,
+  },
+  {
+    text: 'Proyecto #1',
+    completed: true,
+  },
+  {
+    text: 'Proyecto #2',
+    completed: false,
+  },
+  {
+    text: 'Reunión con el equipo',
+    completed: true,
+  },
+];
+
 function App() {
   return (
-    <div className="App">
-      <TodoCounter />
+    <>
+      <TodoCounter 
+        completed={todos.filter(todo => todo.completed).length} 
+        total={todos.length} 
+      />
+
       <TodoSearch />
+
       <TodoList>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo) => (
+          <TodoItem key={todo.text} todo={todo} />
+        ))}
       </TodoList>
+
       <CreateTodoButton />
-    </div>
+    </>
   );
 }
 

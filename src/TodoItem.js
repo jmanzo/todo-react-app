@@ -1,8 +1,8 @@
-function TodoItem() {
+function TodoItem({ todo: { text, completed } }) {
   return (
     <li>
-        <span>C</span>
-        <span>Tarea</span>
+        <span>{completed ? '(x) ' : '( ) '}</span>
+        <span>{text} </span>
         <span>X</span>
     </li>
   );
