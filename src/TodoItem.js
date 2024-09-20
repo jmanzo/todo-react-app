@@ -1,9 +1,11 @@
+import './TodoItem.css';
+
 function TodoItem({ todo: { text, completed } }) {
   return (
-    <li>
-        <span>{completed ? '(x) ' : '( ) '}</span>
+    <li className={'todo-item' + (completed ? ' completed' : '')}>
+        <span className="check-todo-item"></span>
         <span>{text} </span>
-        <span>X</span>
+        <span className="close-icon">X</span>
     </li>
   );
 }

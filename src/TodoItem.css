@@ -1,0 +1,45 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    position: relative;
+}
+
+.close-icon {
+    cursor: pointer;
+    color: #fff;
+    background-color: #dc3545;
+    font-size: 0.4rem;
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    padding: 0.2rem 0.26rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.check-todo-item {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.check-todo-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.todo-item.completed .check-todo-item {
+    background-color: #007bff;
+    border: 2px solid #fff;
+    padding: 0.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

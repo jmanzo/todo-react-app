@@ -1,9 +1,10 @@
-import './App.css';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+
+import './App.css';
 
 const todos = [
   {
@@ -26,7 +27,7 @@ const todos = [
 
 function App() {
   return (
-    <>
+    <div className="app">
       <TodoCounter 
         completed={todos.filter(todo => todo.completed).length} 
         total={todos.length} 
@@ -41,7 +42,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton />
-    </>
+    </div>
   );
 }
 
