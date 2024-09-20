@@ -1,4 +1,4 @@
-.todo-item {
+.todoItem {
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -7,7 +7,7 @@
     position: relative;
 }
 
-.close-icon {
+.closeIcon {
     cursor: pointer;
     color: #fff;
     background-color: #dc3545;
@@ -23,7 +23,7 @@
     transition: background-color 0.3s;
 }
 
-.check-todo-item {
+.checkTodoItem {
     width: 20px;
     height: 20px;
     background-color: #fff;
@@ -33,11 +33,15 @@
     cursor: pointer;
 }
 
-.check-todo-item:hover {
+.checkTodoItem:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.todo-item.completed .check-todo-item {
+.todoItem.todoItem.isCompleted {
+    text-decoration: line-through;
+}
+
+.todoItem.isCompleted .checkTodoItem {
     background-color: #007bff;
     border: 2px solid #fff;
     padding: 0.2rem;

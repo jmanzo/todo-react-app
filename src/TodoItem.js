@@ -1,11 +1,11 @@
-import './TodoItem.css';
+import styles from './TodoItem.module.css';
 
 function TodoItem({ todo: { text, completed } }) {
   return (
-    <li className={'todo-item' + (completed ? ' completed' : '')}>
-        <span className="check-todo-item"></span>
+    <li className={`${styles.todoItem} ${completed ? styles.isCompleted : ''}`}>
+        <span className={styles.checkTodoItem}></span>
         <span>{text} </span>
-        <span className="close-icon">X</span>
+        <span className={styles.closeIcon}>X</span>
     </li>
   );
 }

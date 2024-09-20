@@ -1,8 +1,8 @@
-import './TodoList.css';
+import styles from './TodoList.module.css';
 
 function TodoList(props) {
   return (
-    <ul>
+    <ul className={styles.todoList}>
       {props.children}
     </ul>
   );
