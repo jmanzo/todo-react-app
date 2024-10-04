@@ -40,7 +40,7 @@ function App() {
 
       <TodoList>
         {todos.map((todo) => (
-          <TodoItem key={todo.text} todo={todo} />
+          <TodoItem key={todo.text} todo={todo} setTodos={setTodos} />
         ))}
       </TodoList>
 
