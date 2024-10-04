@@ -1,8 +1,12 @@
 import './CreateTodoButton.css';
 
-function CreateTodoButton() {
+function CreateTodoButton({ showModal, setShowModal }) {
+  const onClickButton = () => {
+    setShowModal(!showModal);
+  };
+
   return (
-    <button>+</button>
+    <button onClick={onClickButton}>+</button>
   );
 }
 
