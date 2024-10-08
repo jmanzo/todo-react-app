@@ -28,6 +28,14 @@ function App() {
       completed: true,
     },
   ]);
+  const [ searchValue, setSearchValue ] = useState('');
+  const searchedTodos = todos.filter(todo => {
+    const normalizeText = (text) => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const todoText = normalizeText(todo.text);
+    const searchText = normalizeText(searchValue);
+
+    return todoText.includes(searchText);
+  });
 
   return (
     <div className="app">
@@ -36,10 +44,10 @@ function App() {
         total={todos.length} 
       />
 
-      <TodoSearch />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
-        {todos.map((todo) => (
+        {searchedTodos.map((todo) => (
           <TodoItem key={todo.text} todo={todo} setTodos={setTodos} />
         ))}
       </TodoList>
