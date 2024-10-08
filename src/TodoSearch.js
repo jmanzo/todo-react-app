@@ -1,12 +1,12 @@
 import styles from './TodoSearch.module.css';
 
-function TodoSearch({ searchValue, setSearchValue }) {
+function TodoSearch({ searchValue, setSearchValue, handleSearch }) {
   return <input 
     className={styles.searcher} 
     placeholder="Cortar cebolla"
     value={searchValue}
     onChange={(event) => {
-      setSearchValue(event.target.value);
+      handleSearch(event.target.value);
     }}
   />;
 }

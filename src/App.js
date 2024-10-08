@@ -29,6 +29,7 @@ function App() {
     },
   ]);
   const [ searchValue, setSearchValue ] = useState('');
+
   const searchedTodos = todos.filter(todo => {
     const normalizeText = (text) => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const todoText = normalizeText(todo.text);
@@ -37,6 +38,18 @@ function App() {
     return todoText.includes(searchText);
   });
 
+  const handleComplete = (text) => {
+    setTodos(todos => todos.map(todo => todo.text === text ? {...todo, completed: !todo.completed} : todo));
+  }
+
+  const handleDelete = (text) => {
+    setTodos(todos => todos.filter(todo => todo.text !== text));
+  }
+
+  const handleSearch = (text) => {
+    setSearchValue(text);
+  }
+
   return (
     <div className="app">
       <TodoCounter 
@@ -44,11 +57,21 @@ function App() {
         total={todos.length} 
       />
 
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <TodoSearch 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue} 
+        handleSearch={handleSearch}
+      />
 
       <TodoList>
         {searchedTodos.map((todo) => (
-          <TodoItem key={todo.text} todo={todo} setTodos={setTodos} />
+          <TodoItem 
+            key={todo.text} 
+            name={todo.text} 
+            completed={todo.completed}
+            handleComplete={() => handleComplete(todo.text)}
+            handleDelete={() => handleDelete(todo.text)}
+          />
         ))}
       </TodoList>
 
