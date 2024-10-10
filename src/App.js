@@ -6,6 +6,7 @@ import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { Modal } from './Modal';
+import PartyPopper from './PartyPopper'; 
 import './App.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 
     return todoText.includes(searchText);
   });
+  const allCompleted = todos.every(todo => todo.completed); // Check if all todos are completed
 
   const handleComplete = (text) => {
     setTodos(todos => todos.map(todo => todo.text === text ? {...todo, completed: !todo.completed} : todo));
@@ -74,6 +76,8 @@ function App() {
           />
         ))}
       </TodoList>
+
+      {allCompleted && <PartyPopper />} {/* Render PartyPopper if all todos are completed */}
 
       <CreateTodoButton showModal={showModal} setShowModal={setShowModal} />
       
