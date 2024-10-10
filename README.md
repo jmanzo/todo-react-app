@@ -42,7 +42,7 @@ For additional support and resources:
 
 ## Acknowledgements
 
-Find the project deployed at [jeanmanzo.github.io/todo-react-app](https://jeanmanzo.github.io/todo-react-app)
+Find the project deployed at [jmanzo.github.io/todo-react-app](https://jmanzo.github.io/todo-react-app)
 
 This project is part of the React.js course curriculum at [Platzi](https://platzi.com), a leading online education platform for technology skills.
 
