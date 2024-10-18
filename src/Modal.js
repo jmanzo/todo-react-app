@@ -7,10 +7,10 @@ function Modal({ setShowModal, setTodos }) {
     return (
         <div className={styles.modal}>
         <div className={styles.modalContent}>
-            <h1>Nuevo TODO</h1>
+            <h1>New TODO</h1>
             <input 
                 type="text" 
-                placeholder="Escribe tu nuevo TODO" 
+                placeholder="Write your task" 
                 className={styles.input} 
                 onChange={(e) => setNewTodo(e.target.value)}
                 value={newTodo}
@@ -22,7 +22,7 @@ function Modal({ setShowModal, setTodos }) {
                 }} 
                 className={styles.button}
             >
-            Agregar
+            Add
             </button>
         </div>
         </div>

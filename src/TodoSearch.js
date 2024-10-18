@@ -1,9 +1,9 @@
 import styles from './TodoSearch.module.css';
 
-function TodoSearch({ searchValue, setSearchValue, handleSearch }) {
+function TodoSearch({ searchValue, handleSearch }) {
   return <input 
     className={styles.searcher} 
-    placeholder="Cortar cebolla"
+    placeholder="Search your task"
     value={searchValue}
     onChange={(event) => {
       handleSearch(event.target.value);
