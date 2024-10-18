@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -11,24 +11,7 @@ import './App.css';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [todos, setTodos] = useState([
-    {
-      text: 'Pagos pendientes',
-      completed: true,
-    },
-    {
-      text: 'Proyecto #1',
-      completed: true,
-    },
-    {
-      text: 'Proyecto #2',
-      completed: false,
-    },
-    {
-      text: 'Reunión con el equipo',
-      completed: true,
-    },
-  ]);
+  const [todos, setTodos] = useState(localStorage.getItem('todos_v1') ? JSON.parse(localStorage.getItem('todos_v1')) : []);
   const [ searchValue, setSearchValue ] = useState('');
 
   const searchedTodos = todos.filter(todo => {
@@ -51,6 +34,10 @@ function App() {
   const handleSearch = (text) => {
     setSearchValue(text);
   }
+
+  useEffect(() => {
+    localStorage.setItem('todos_v1', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="app">
@@ -77,7 +64,7 @@ function App() {
         ))}
       </TodoList>
 
-      {allCompleted && <PartyPopper />} {/* Render PartyPopper if all todos are completed */}
+      {(allCompleted && todos.length > 0) && <PartyPopper />} {/* Render PartyPopper if all todos are completed */}
 
       <CreateTodoButton showModal={showModal} setShowModal={setShowModal} />
       
